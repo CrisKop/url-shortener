@@ -26,6 +26,8 @@ const LinkItem: React.FC<Link> = ({
         <div className="flex items-center mb-4">
           <div className="bg-gray-100 p-2 rounded-full">
             <Image
+              width={64}
+              height={64}
               src={faviconUrl}
               alt={`Logo de ${domain}`}
               className="w-8 h-8"

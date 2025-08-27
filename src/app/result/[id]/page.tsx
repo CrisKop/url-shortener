@@ -111,6 +111,8 @@ export default function ResultadoPage({
               </h3>
               <div className="flex items-center justify-center bg-gray-50 rounded-lg p-4">
                 <Image
+                  width={64}
+                  height={64}
                   src={getFaviconUrl(originalUrl)}
                   alt="Favicon"
                   className="w-6 h-6 mr-3"
@@ -126,9 +128,9 @@ export default function ResultadoPage({
               <h3 className="text-lg font-semibold text-gray-800 mb-3">
                 Tu URL acortada es:
               </h3>
-              <div className="flex items-center gap-3 bg-[var(--highlight)] bg-opacity-10 rounded-lg p-4">
+              <div className="flex flex-wrap items-center gap-3 bg-[var(--highlight)] bg-opacity-10 rounded-lg p-4">
                 <div className="flex-1 text-left">
-                  <div className="text-2xl font-bold text-[var(--foreground)]">
+                  <div className="text-2xl font-bold text-[var(--foreground)] break-all w-2xs max-w-[50vw] md:w-auto min-h-fit">
                     {shortUrl}
                   </div>
                 </div>

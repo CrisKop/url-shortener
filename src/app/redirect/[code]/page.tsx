@@ -88,6 +88,8 @@ export default function RedirectPage({
 
         <div className="flex items-center justify-center mb-6">
           <Image
+            width={64}
+            height={64}
             src={faviconUrl}
             alt={`Logo de ${domain}`}
             className="w-16 h-16 mr-4"
