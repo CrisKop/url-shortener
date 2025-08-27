@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const LinkItem: React.FC<Link> = ({
   url,
@@ -24,7 +25,7 @@ const LinkItem: React.FC<Link> = ({
       <div className="p-5 flex-grow">
         <div className="flex items-center mb-4">
           <div className="bg-gray-100 p-2 rounded-full">
-            <img
+            <Image
               src={faviconUrl}
               alt={`Logo de ${domain}`}
               className="w-8 h-8"

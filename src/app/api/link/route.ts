@@ -13,7 +13,7 @@ export async function GET() {
       .toArray();
 
     return Response.json(links, { status: 200 });
-  } catch (error) {
+  } catch (_error) {
     return Response.json(
       { error: "Error al obtener los links" },
       { status: 500 }
@@ -55,7 +55,7 @@ export async function POST(req: Request) {
       { _id: result.insertedId, ...newLink },
       { status: 201 }
     );
-  } catch (error) {
+  } catch (_error) {
     return Response.json({ error: "Error al crear link" }, { status: 500 });
   }
 }

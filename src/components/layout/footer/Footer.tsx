@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function Footer() {
@@ -6,14 +7,14 @@ function Footer() {
       <p>{new Date().getFullYear()} - ZapCut - Acortador de Links</p>
       <p>
         Creado por
-        <a
+        <Link
           className="text-[var(--highlight)] hover:text-[var(--primary)]"
           href="https://criskop.com"
           target="_blank"
           rel="noopener noreferrer"
         >
           : CrisKop
-        </a>
+        </Link>
       </p>
     </footer>
   );

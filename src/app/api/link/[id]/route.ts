@@ -1,5 +1,5 @@
 import { getCollection } from "@/lib/mongodb";
-import { ObjectId } from "mongodb";
+import { ObjectId, Filter } from "mongodb";
 
 // #MARK: GET one link
 export async function GET(
@@ -10,21 +10,21 @@ export async function GET(
     const { id } = await context.params; // 👈 aquí lo resolvemos
     const collection = await getCollection<Link>("links");
 
-    const query: any = { $or: [] };
+    const query: Filter<Link> = { $or: [] };
 
     if (ObjectId.isValid(id)) {
-      query.$or.push({ _id: new ObjectId(id) });
+      query.$or!.push({ _id: new ObjectId(id) });
     }
 
-    query.$or.push({ shortened: id });
+    query.$or!.push({ shortened: id });
 
     const link = await collection.findOne(query);
 
     if (!link)
       return Response.json({ error: "No encontrado" }, { status: 404 });
     return Response.json(link, { status: 200 });
-  } catch (error) {
-    console.log(error);
+  } catch (_error) {
+    console.log(_error);
     return Response.json({ error: "Error al obtener link" }, { status: 500 });
   }
 }
@@ -52,7 +52,7 @@ export async function PATCH(
       return Response.json({ error: "No encontrado" }, { status: 404 });
 
     return Response.json(result, { status: 200 });
-  } catch (error) {
+  } catch (_error) {
     return Response.json(
       { error: "Error al actualizar link" },
       { status: 500 }
@@ -78,7 +78,7 @@ export async function DELETE(
       { message: "Eliminado correctamente" },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (_error) {
     return Response.json({ error: "Error al eliminar link" }, { status: 500 });
   }
 }

@@ -2,6 +2,8 @@
 
 import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function RedirectPage({
   params,
@@ -29,7 +31,7 @@ export default function RedirectPage({
     }
     const timer = setInterval(countDown, 1000);
     return () => clearInterval(timer);
-  }, [time, router, linkData]);
+  }, [time, router, linkData, countDown]);
 
   useEffect(() => {
     async function fetchLink() {
@@ -65,12 +67,12 @@ export default function RedirectPage({
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
           <h1 className="text-2xl font-bold mb-4">Link No Encontrado</h1>
           <p className="mb-6">El link no existe o ha sido eliminado.</p>
-          <a
+          <Link
             href="/"
             className="inline-block bg-[var(--highlight)] text-[var(--background)] px-6 py-2 rounded-lg hover:bg-[var(--primary)] transition-colors"
           >
             Volver al inicio
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -85,7 +87,7 @@ export default function RedirectPage({
         <h1 className="text-2xl font-bold mb-4">Redirigido por ZapCut</h1>
 
         <div className="flex items-center justify-center mb-6">
-          <img
+          <Image
             src={faviconUrl}
             alt={`Logo de ${domain}`}
             className="w-16 h-16 mr-4"
@@ -100,12 +102,12 @@ export default function RedirectPage({
           Serás redirigido automáticamente en {time} segundos...
         </p>
 
-        <a
+        <Link
           href={linkData.url}
           className="inline-block bg-[var(--highlight)] text-[var(--background)] px-6 py-2 rounded-lg hover:bg-[var(--primary)] transition-colors"
         >
           Ir ahora
-        </a>
+        </Link>
       </div>
     </div>
   );

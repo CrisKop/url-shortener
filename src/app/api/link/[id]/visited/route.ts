@@ -21,7 +21,7 @@ export async function POST(
     }
 
     return Response.json(result, { status: 200 });
-  } catch (error) {
+  } catch (_error) {
     return Response.json(
       { error: "Error al actualizar visitas" },
       { status: 500 }

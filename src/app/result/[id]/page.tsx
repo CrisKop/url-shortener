@@ -2,6 +2,7 @@
 
 import { use, useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ResultadoPage({
   params,
@@ -109,7 +110,7 @@ export default function ResultadoPage({
                 URL Original:
               </h3>
               <div className="flex items-center justify-center bg-gray-50 rounded-lg p-4">
-                <img
+                <Image
                   src={getFaviconUrl(originalUrl)}
                   alt="Favicon"
                   className="w-6 h-6 mr-3"

@@ -1,8 +1,10 @@
 "use client";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 
-export default () => {
+function Nav() {
   const [state, setState] = useState(false);
 
   // Replace javascript:void(0) path with your path
@@ -13,9 +15,9 @@ export default () => {
       <header className="bg-[#f9fafb]">
         <nav className="bg-transparent relative items-center px-4 mx-auto max-w-screen-xl sm:px-8 sm:flex sm:space-x-6">
           <div className="flex justify-between">
-            <a href="/">
-              <img src="zapcut-logo.webp" width={40} height={40} alt="Zap" />
-            </a>
+            <Link href="/">
+              <Image src="/zapcut-logo.webp" width={40} height={40} alt="Zap" />
+            </Link>
             <button
               className="text-gray-500 outline-none sm:hidden"
               onClick={() => setState(!state)}
@@ -64,11 +66,11 @@ export default () => {
                   className="text-gray-500 hover:text-[var(--highlight)]"
                   key={idx}
                 >
-                  <a href={item.path}>{item.title}</a>
+                  <Link href={item.path}>{item.title}</Link>
                 </li>
               ))}
 
-              <a
+              <Link
                 href="https://github.com/CrisKop/url-shortener"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -76,11 +78,13 @@ export default () => {
               >
                 <FaGithub size={24} />
                 <span>Source Code</span>
-              </a>
+              </Link>
             </div>
           </ul>
         </nav>
       </header>
     </>
   );
-};
+}
+
+export default Nav;
