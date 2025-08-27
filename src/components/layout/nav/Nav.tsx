@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { FaGithub } from "react-icons/fa";
 
 export default () => {
   const [state, setState] = useState(false);
@@ -12,13 +13,8 @@ export default () => {
       <header className="bg-[#f9fafb]">
         <nav className="bg-transparent relative items-center px-4 mx-auto max-w-screen-xl sm:px-8 sm:flex sm:space-x-6">
           <div className="flex justify-between">
-            <a href="javascript:void(0)">
-              <img
-                src="https://www.floatui.com/logo.svg"
-                width={120}
-                height={50}
-                alt="Float UI logo"
-              />
+            <a href="/">
+              <img src="zapcut-logo.webp" width={40} height={40} alt="Zap" />
             </a>
             <button
               className="text-gray-500 outline-none sm:hidden"
@@ -71,6 +67,16 @@ export default () => {
                   <a href={item.path}>{item.title}</a>
                 </li>
               ))}
+
+              <a
+                href="https://github.com/CrisKop/url-shortener"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-500 hover:text-[var(--highlight)] transition"
+              >
+                <FaGithub size={24} />
+                <span>Source Code</span>
+              </a>
             </div>
           </ul>
         </nav>

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const LinkItem: React.FC<LinkItemProps> = ({
+const LinkItem: React.FC<Link> = ({
   url,
   shortened,
   timesVisited,
