@@ -6,6 +6,7 @@
     "dev": "next dev -p 5300 --turbopack",
     "build": "next build --turbopack",
     "start": "next start -p 5300",
+    "prod": "next build && next start -p 5300",
     "lint": "eslint"
   },
   "dependencies": {
